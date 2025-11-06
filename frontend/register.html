@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteFlow - Créer un compte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<header>
+    <h1>NoteFlow</h1>
+    <div class="header-right">
+        <button onclick="window.location.href='index.html'">Connexion</button>
+        <button id="helpBtn">Aide</button>
+        <button id="toggleTheme">Thème</button>
+    </div>
+</header>
+
+<main>
+    <form class="login-form" id="registerForm">
+        <h2>Créer un compte</h2>
+        <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
+        <input type="email" id="regEmail" name="email" placeholder="votre@email.com" required>
+        <input type="password" id="regPassword" name="password" placeholder="Mot de passe" required>
+        <input type="password" id="regConfirm" name="confirm" placeholder="Confirmer le mot de passe" required>
+
+        <button type="submit">S'inscrire</button>
+        <p class="forgot-password"><a href="index.html">Déjà un compte ? Se connecter</a></p>
+    </form>
+</main>
+
+<!-- aide modal -->
+<div id="helpModal">
+    <div class="help-content">
+        <button id="closeHelp">&times;</button>
+        <h3>Contactez-nous</h3>
+        <form id="helpForm">
+            <label for="helpEmail">Votre e-mail</label>
+            <input type="email" id="helpEmail" required placeholder="votre@email.com">
+            <label for="helpMsg">Votre message</label>
+            <textarea id="helpMsg" rows="4" required placeholder="Décrivez votre problème..."></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
