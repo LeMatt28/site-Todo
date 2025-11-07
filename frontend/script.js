@@ -53,16 +53,18 @@ if (loginForm) {
 }
 
 const registerForm = document.getElementById('registerForm');
-if (registerForm) {
-    registerForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const firstName = document.getElementById('firstName').value.trim();
-        const lastName = document.getElementById('lastName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const confirmPassword = document.getElementById('confirmPassword').value.trim();
 
-        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+if (registerForm) {
+    registerForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const firstname = document.getElementById('regFirstname').value.trim();
+        const name = document.getElementById('regName').value.trim();
+        const email = document.getElementById('regEmail').value.trim();
+        const password = document.getElementById('regPassword').value.trim();
+        const confirmPassword = document.getElementById('regConfirmPassword').value.trim();
+
+        if (!firstname || !name || !email || !password || !confirmPassword) {
             alert('Veuillez remplir tous les champs.');
             return;
         }
@@ -72,9 +74,22 @@ if (registerForm) {
             return;
         }
 
-        alert(`Compte créé pour ${firstName} ${lastName} (${email}) (simulation).`);
+        try {
+            const res = await fetch("http://localhost:5000/user", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password, name, firstname })
+            });
+
+            const data = await res.json();
+            alert(`Compte créé pour ${firstname} ${name} (${email}) : ${data.message}`);
+        } catch (error) {
+            console.error(error);
+            alert("Une erreur est survenue lors de la création du compte.");
+        }
     });
 }
+
 
 const resetForm = document.getElementById('resetForm');
 if (resetForm) {

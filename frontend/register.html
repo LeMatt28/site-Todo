@@ -23,13 +23,13 @@
 <button id="helpBtn" class="help-btn">?</button>
 
   <main>
-    <form class="login-form" id="registerForm">
+    <form action="http://localhost:8080/user" class="login-form" id="registerForm" method="POST">
       <h2>Créer un compte</h2>
-      <input type="email" id="regEmail" placeholder="Email" required>
-      <input type="text" id="regNom" placeholder="Nom" required>
-      <input type="text" id="regPrenom" placeholder="Prénom" required>
-      <input type="password" id="regPassword" placeholder="Mot de passe" required>
-      <input type="password" id="regConfirm" placeholder="Confirmer le mot de passe" required>
+      <input type="email" name="email" id="regEmail" placeholder="Email" required>
+      <input type="text" name="name" id="regName" placeholder="Nom" required>
+      <input type="text" name="firstname" id="regFirstname" placeholder="Prénom" required>
+      <input type="password" name="password" id="regPassword" placeholder="Mot de passe" required>
+      <input type="password" id="regConfirmPassword" placeholder="Confirmer le mot de passe" required>
       <button type="submit">S'inscrire</button>
     </form>
   </main>

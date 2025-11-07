@@ -22,9 +22,9 @@ async function updateuser(id , email, password, name, firstname){
 }
 
 // SQL CREER USER
- async function createuser(email, password, name, firstname){
+ async function createuser(email, hash, name, firstname){
     try {
-        const [result] = await connexion.execute("INSERT INTO user (`id`, `email`, `password`, `name`, `firstname`) VALUES (NULL,?,?,?,?)", [email, password, name, firstname])
+        const [result] = await connexion.execute("INSERT INTO user (`id`, `email`, `password`, `name`, `firstname`) VALUES (NULL,?,?,?,?)", [email, hash, name, firstname])
         return result;
     } catch(err){
         throw err;
