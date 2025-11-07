@@ -1,4 +1,5 @@
 const connexion = require("../../config/db")
+// const mysql = require('mysql2/promise');
 
 // SQL SUPPRIMER USER
 function deleteuser(id, callback) {
