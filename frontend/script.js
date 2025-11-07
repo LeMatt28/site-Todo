@@ -1,11 +1,9 @@
-/* ---------------------- SWITCH THÈME ---------------------- */
 const themeSwitch = document.getElementById('themeSwitch');
 
 themeSwitch.addEventListener('change', () => {
     document.body.classList.toggle('dark');
     document.body.classList.toggle('light');
 
-    // sauvegarde le thème
     if (document.body.classList.contains('dark')) {
         localStorage.setItem('theme', 'dark');
     } else {
@@ -13,7 +11,6 @@ themeSwitch.addEventListener('change', () => {
     }
 });
 
-// appliquer le thème sauvegardé
 window.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -27,7 +24,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* ---------------------- MENU MOBILE ---------------------- */
 const menuToggle = document.getElementById('menuToggle');
 const menu = document.getElementById('menu');
 
@@ -35,13 +31,11 @@ menuToggle.addEventListener('click', () => {
     menu.classList.toggle('open');
 });
 
-/* ---------------------- BOUTON AIDE ---------------------- */
 const helpBtn = document.getElementById('helpBtn');
 helpBtn.addEventListener('click', () => {
     alert('Besoin d’aide ? Contactez support@noteflow.com');
 });
 
-/* ---------------------- FORMULAIRE CONNEXION ---------------------- */
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
@@ -58,7 +52,6 @@ if (loginForm) {
     });
 }
 
-/* ---------------------- FORMULAIRE INSCRIPTION ---------------------- */
 const registerForm = document.getElementById('registerForm');
 if (registerForm) {
     registerForm.addEventListener('submit', (e) => {
@@ -83,7 +76,6 @@ if (registerForm) {
     });
 }
 
-/* ---------------------- FORMULAIRE RESET ---------------------- */
 const resetForm = document.getElementById('resetForm');
 if (resetForm) {
     resetForm.addEventListener('submit', (e) => {
@@ -97,7 +89,6 @@ if (resetForm) {
     });
 }
 
-/* ---------------------- BOUTONS HEADER ---------------------- */
 const signupBtn = document.getElementById('signupBtn');
 if (signupBtn) {
     signupBtn.addEventListener('click', () => {
