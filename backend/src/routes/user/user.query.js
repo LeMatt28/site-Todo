@@ -2,33 +2,63 @@ const connexion = require("../../config/db")
 // const mysql = require('mysql2/promise');
 
 // SQL SUPPRIMER USER
-function deleteuser(id, callback) {
-    connexion.query("DELETE FROM user WHERE id = ?", [id], callback)
+async function deleteuser(id){
+    try {
+        const [result] = await connexion.execute("DELETE FROM user WHERE id = ?", [id]);
+        return result;
+    } catch(err){
+        throw err;
+    }
 }
 
 // SQL MODIFIER USER
-function updateuser(id , email, password, name, firstname, callback){
-    connexion.query("UPDATE user SET email = ?, password = ?, name = ?, firstname = ? WHERE id = ?", [email, password, name, firstname, id], callback)
+async function updateuser(id , email, password, name, firstname){
+    try {
+        const [result] = await connexion.execute("UPDATE user SET email = ?, password = ?, name = ?, firstname = ? WHERE id = ?", [email, password, name, firstname, id]);
+        return result;
+    } catch(err){
+        throw err;
+    }
 }
 
 // SQL CREER USER
-function createuser(email, password, name, firstname, callback){
-    connexion.query("INSERT INTO user (`id`, `email`, `password`, `name`, `firstname`) VALUES (NULL,?,?,?,?)", [email, password, name, firstname, ], callback)
+ async function createuser(email, password, name, firstname){
+    try {
+        const [result] = await connexion.execute("INSERT INTO user (`id`, `email`, `password`, `name`, `firstname`) VALUES (NULL,?,?,?,?)", [email, password, name, firstname])
+        return result;
+    } catch(err){
+        throw err;
+    }
 }
 
 // SQL RECUPERER TOUT LES USERS
-function getusers(callback){
-    connexion.query("SELECT * FROM user", callback)
+async function getusers(){
+    try {
+        const [result] = await connexion.execute("SELECT * FROM user");
+        return result;
+    } catch(err){
+        throw err;
+    }
 }
 
 // SQL RECUPERER LES INFOS DU USER EMAIL
-function getuserinfosemail(id, email, callback){
-    connexion.query("SELECT id, email, password FROM user WHERE id =? OR email = ?", [id, email], callback)
+async function getuserinfosemail(id, email){
+    try {
+        const [result] = await connexion.execute("SELECT id, email, password FROM user WHERE id =? OR email = ?", [id, email]);
+        return result;
+    } catch (err){
+        throw err;
+    }
 }
 
 // SQL RECUPERER LES INFOS DU USER ID
-function getuserinfosid(id, callback){
-    connexion.query("SELECT id, email, password FROM user WHERE id = ?", [id], callback)
+async function getuserinfosid(id){
+    try {
+        const [result] = await connexion.execute("SELECT id, email, password FROM user WHERE id = ?", [id]);
+        return result;
+    } catch(err){
+        throw err;
+    }
 }
 
 
