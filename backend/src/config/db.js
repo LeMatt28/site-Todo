@@ -1,11 +1,13 @@
 const mysql = require("mysql")
+require("dotenv").config();
+
 
 // DÉFINITION DE LA CONNEXION A LA BASE
 const connexion = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "TonMotDePasse",
-    database: "etodo"
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_ROOT_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
 })
 
 // CONNEXION A LA BASE DE DONNÉES

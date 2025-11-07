@@ -14,7 +14,7 @@ rooter.post("/", (req, res) => {
 
     createuser(email, password, name, firstname,  (err, results) => {
         if(err) throw err;
-        res.json({message: "c'est doog le reuf c ajouté"})
+        res.json({message: "Compte utilisateur crée avec succès ! "})
     })
 
 });
@@ -30,7 +30,7 @@ rooter.put("/:id", (req, res) => {
 
     updateuser(id, email, password, name, firstname, (err, results) => {
         if(err) throw err;
-        res.json({message: "utilisateur modifié"})
+        res.json({message: "utilisateur modifié avec succès !"})
     })
 
 });
@@ -41,7 +41,7 @@ rooter.delete("/:id", (req, res) => {
 
     deleteuser(id, (err, results) => {
         if(err) throw err;
-        res.json({message: "Utilisateur supprimé"})
+        res.json({message: "Utilisateur supprimé avec succès !"})
     })
 
 });
