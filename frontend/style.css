@@ -198,16 +198,14 @@ form button[type="submit"] {
     color: #fff;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all;
 }
 
 form button[type="submit"]:hover {
     opacity: 0.85;
 }
-
-/* checkbox */
-form div input[type="checkbox"] {
-    margin-right: 8px;
+form button[type="submit"]:focus {
+    transform: scale(0.99);
 }
 
 .help-btn {

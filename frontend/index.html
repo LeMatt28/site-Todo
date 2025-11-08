@@ -23,13 +23,11 @@
 <button id="helpBtn" class="help-btn">?</button>
 
   <main>
-    <form class="login-form" id="loginForm">
-      <h2>Connexion</h2>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Mot de passe" required>
+    <form action="localhost:5000/login" class="login-form" id="loginForm" method="POST">
+      <h2 id="h2">Connexion</h2>
+      <input  name="email" type="email" id="email" placeholder="Email" required>
+      <input name="password" type="password" id="password" placeholder="Mot de passe" required>
       <div class="remember">
-        <input type="checkbox" id="remember">
-        <label for="remember">Se souvenir de moi</label>
       </div>
       <button type="submit">Se connecter</button>
     </form>

@@ -38,17 +38,29 @@ helpBtn.addEventListener('click', () => {
 
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
-    loginForm.addEventListener('submit', (e) => {
+    loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
 
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+ 
         if (!email || !password) {
             alert('Veuillez remplir tous les champs.');
-            return;
-        }
+            return;}
+        try {
 
-        alert(`Connexion réussie pour ${email} (simulation).`);
+            const res = await fetch("http://localhost:5000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password})
+            });
+            const data = await res.json();
+            document.getElementById("h2").innerHTML = data;
+
+        } catch (error) {
+            console.error(error);
+            alert("Une erreur est survenue lors de la création du compte.");
+        }
     });
 }
 
@@ -69,11 +81,6 @@ if (registerForm) {
             return;
         }
 
-        if (password !== confirmPassword) {
-            alert('Les mots de passe ne correspondent pas.');
-            return;
-        }
-
         try {
             const res = await fetch("http://localhost:5000/user", {
                 method: "POST",
@@ -82,7 +89,7 @@ if (registerForm) {
             });
 
             const data = await res.json();
-            alert(`Compte créé pour ${firstname} ${name} (${email}) : ${data.message}`);
+            document.getElementById("h2").innerHTML = data
         } catch (error) {
             console.error(error);
             alert("Une erreur est survenue lors de la création du compte.");

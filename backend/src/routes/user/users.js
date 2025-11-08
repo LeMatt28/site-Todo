@@ -4,6 +4,8 @@ const connexion = require("../../config/db")
 rooter.use(express.json())
 const bcrypt = require("bcryptjs");
 
+
+
 const { deleteuser, updateuser, createuser, getusers, getuserinfosid, getuserinfosemail } = require("./user.query")
 
 // CREER UN UTILISATEUR
